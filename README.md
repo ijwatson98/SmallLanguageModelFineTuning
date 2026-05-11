@@ -26,7 +26,7 @@ Can smaller language models close some of the performance gap to larger models w
 - data preparation for summarisation experiments
 - supervised fine-tuning workflows
 - RLAIF training workflows
-- evaluation scripts / notebooks for ROUGE-based comparison
+- evaluation notebooks for ROUGE-based comparison
 - outputs and experiment artefacts used in the project analysis
 
 ## Models
@@ -40,13 +40,9 @@ This project focuses on smaller checkpoints of:
 - **Task:** one-sentence abstractive summarisation
 
 ## Typical experiment flow
-1. prepare and filter the dataset
-2. run baseline model evaluation
-3. fine-tune the model with supervised learning
-4. evaluate the fine-tuned checkpoint
-5. initialise the RLAIF stage from the SFT checkpoint
-6. run RLAIF
-7. evaluate the final checkpoint and compare results
+1. run the model notebook for the model you want to evaluate
+2. generate the corresponding outputs and metrics
+3. use the final plotting notebook to compare results across models
 
 ## Setup
 
@@ -67,24 +63,15 @@ pip install -r requirements.txt
 If the RLAIF workflow depends on external model APIs or provider keys, add them to a local `.env` file or your shell environment before running experiments.
 
 ## Running the code
-This repository was developed for a project workflow rather than as a packaged library, so the exact entry points depend on the scripts or notebooks you want to run.
+This repository is organised around notebooks. The recommended approach is to run the model notebooks separately, one per model, and then use the plotting notebook for final comparison.
 
-Recommended order:
-1. run data preparation
-2. run baseline / SFT training
-3. run evaluation
-4. run RLAIF
-5. run final evaluation and result comparison
+### Notebook order
+- `run_t5.ipynb`
+- `run_bart_l.ipynb`
+- `run_gpt2-m.ipynb`
+- `plots.ipynb` — final results and comparison
 
-Replace the placeholders below with the actual entry points used in the repo:
-
-```bash
-python <prepare_data_script>.py
-python <run_sft_script>.py
-python <evaluate_script>.py
-python <run_rlaif_script>.py
-python <evaluate_script>.py
-```
+Each model notebook contains the workflow for that model, including the relevant fine-tuning, RLAIF, evaluation, and output generation steps used in the project.
 
 ## Results
 This repository supports the conclusion that:
