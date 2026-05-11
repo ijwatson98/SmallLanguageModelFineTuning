@@ -76,7 +76,8 @@ Each model notebook contains the workflow for that model, including the relevant
 ## Results
 This repository supports the conclusion that:
 - supervised fine-tuning is effective for smaller models in this setting
-- RLAIF is not automatically beneficial, and depends strongly on the training and evaluation setup
+- in the evaluation setup used here, RLAIF did not produce additional improvement over SFT
+- smaller models improved substantially, but did not fully close the gap to stronger state-of-the-art systems
 
 ## Scope
 This is research code for a specific project, not a production training framework. The goal is experimental clarity rather than generality.
